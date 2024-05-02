@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!--- Adicionando as fontes (Google Fontes) --->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<!------------------------------------------------>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto IMC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Criando a mensagem de ERRO -->
+  <div class="error">
+    Digite somente números
+  </div>
+
+  <!-- Criando o formulário e o Button -->
+  <div class="container">
+    <main class="card">
+      <form action="">
+
+        <h1 class="title">Cálculo de IMC</h1>
+
+        <div class="labelInput">
+          <!-- For e Id tem que ter o mesmo nome para estarem linkados -->
+          <label for="weight">Peso (Kg)</label>
+          <input type="text" id="weight" placeholder="60"> 
+          <!-------------------------------------->
+        </div>
+
+        <div class="labelInput">
+          <!-- For e Id tem que ter o mesmo nome para estarem linkados -->
+          <label for="height">Altura (Cm)</label>
+          <input type="text" id="height" placeholder="165"> 
+          <!-------------------------------------->
+        </div>
+
+        <!-- SVG se aplica igual a uma imagem comum -->
+        <button>Calcular IMC <img src="assets/seta.svg" alt="Seta apontando para direita"></button>
+        <!---------------------------------------->
+      </form>
+    </main>
+  </div>
+
+  <!-- Criando a MODAL -->
+  <div class="caixa-modal">
+    <div class="modal card">
+      <h2 class="title">
+        <button class="close"><img src="assets/close.svg" alt="botao em X"></button>
+
+        <!-- Vou precisar envolver o texto em uma tag, pois eu vou precisar mudar somente o texto pelo JS quando for clica no BUTTON -->
+        <span class="">Seu IMC é de 28</span>
+      </h2>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

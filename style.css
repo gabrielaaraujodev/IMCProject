@@ -1,0 +1,187 @@
+/* Resetando o CSS (Saber explicar cada 'reset')*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  /* Criando variáveis para as cores */
+  --titulo-card: #0C3440;
+  --label-card: #00453A;
+  --texto-input: #212529;
+  --outline-input: #02799D;
+  --background-input: #DCE2E9;
+  --borda-input: rgba(73, 80, 87, 0.3);
+  --texto-placeholder: rgba(73, 80, 87, 0.5);
+  --texto-botao: white;
+  --background-botao: #02799D;
+  --background-error: #F03E3E;
+  --backgroundbutton-hover: #00526b;
+}
+
+/* No ROOT as config's abaixo não se aplicaria aos INPUTS e BUTTON */
+body, input, button {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+/* Estilizando o BODY de acordo com o FIGMA */
+body {
+  background-color: #040924;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+}
+
+/* Centralizando a div  */
+.container {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+/* Estilizando o CARD de acordo com o FIGMA */
+.card {
+  max-width: 42rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+  border-radius: .6rem;
+  background-color: white;
+  box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
+  margin-inline: auto;
+}
+
+/* Estilizando o título do FORM */
+.title {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  color: var(--titulo-card);
+}
+
+form {
+  width: 30rem;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+/* Estilizando o LABEL e INPUTS  */
+label {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--label-card);
+
+  /* Label = Display INLINE. Não aceita MARGIN */
+  display: block;
+  margin-bottom: .8rem;
+}
+
+input {
+  width: 100%;
+  background-color: var(--background-input);
+  border: 1px solid var(--borda-input);
+  border-radius: .4rem;
+  padding: 1.6rem;
+}
+
+form input:focus {
+  /* Quando estiver SELECIONADO */
+  outline: 2px solid var(--outline-input);
+}
+
+input::placeholder {
+  color: var(--texto-placeholder);
+}
+
+.labelInput + .labelInput {
+  margin-top: 1.6rem;
+}
+
+/* Estilizando o BUTTON */
+form button {
+  width: 100%;
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  border-radius: .4rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  font-weight: bold;
+  color: var(--texto-botao);
+  background-color: var(--background-botao);
+  cursor: pointer;
+  transition: background .3s;
+}
+
+form button:hover {
+  background-color: var(--backgroundbutton-hover);
+}
+
+/* Estilizando o MODAL */
+.caixa-modal {
+  /* Cria uma nova cama POR CIMA da tag PAI existente */
+  position: absolute;
+
+  display: grid;
+  place-content: center;
+  inset: 0; /* top, right, bottom, left */ 
+  background-color: rgba(0, 0, 0, 0.7);
+
+  /* Sumindo com a modal */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Posição RELATIVE para que o BUTTON tenha posição absoluta ao card e não a página inteira */
+.card {
+  position: relative;
+}
+
+
+/* Estilizando o botao X do MODAL */
+.modal button {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+/* Quando acontecer o ERRO vai fazer a caixa aparecer */
+.caixa-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Estilizando o ERRO */
+.error {
+  position: absolute;
+  background-color: var(--background-error);
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  padding: .8rem 0;
+  font-weight: bold;
+
+  /* Sumindo com o ERRO */
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Quando acontecer o ERRO vai fazer a caixa aparecer */
+.error.open {
+  visibility: visible;
+  opacity: 1;
+}
