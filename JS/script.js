@@ -1,6 +1,6 @@
 import { modal } from './modal.js'
 import { alertError } from './error.js'
-
+import { IMC, notNumber } from './utils.js'
 // 'Pegando' os seletores HTML e atrubindo a variáveis em JS.
 
 const form = document.querySelector('form')
@@ -24,7 +24,7 @@ form.onsubmit = (event) => {
   }
 
   alertError.close()
-  
+
   // Atribuindo o resultado da função IMC a uma variável para printa-la
   const result = IMC(weight,height)
 
@@ -37,16 +37,14 @@ form.onsubmit = (event) => {
   modal.open()
 }
 
-// Validação dos INPUTS
-function notNumber(value) {
-  return isNaN(value) || value == ""
+// Tirando a msg de ERRO assim que começar a digitar um número
+inputWeight.oninput = () => {
+  alertError.close()
 }
 
-// Função para o calculo do IMC
-function IMC(weight,height) {
-  return (weight / ((height / 100) ** 2)). toFixed(2)
+inputHeight.oninput = () => {
+  alertError.close()
 }
-
 
 
 
