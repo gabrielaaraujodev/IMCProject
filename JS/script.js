@@ -1,25 +1,12 @@
+import { modal } from './modal.js'
+
 // 'Pegando' os seletores HTML e atrubindo a variáveis em JS.
 
 const form = document.querySelector('form')
 const inputWeight = document.querySelector('#weight')
 const inputHeight = document.querySelector('#height')
 
-// Estruturando dados de uma MODAL. Nesse caso, estamos atribuindo a resposabildiade referente ao MODAL criando-se funções.
-const modal = {
-  caixa: document.querySelector('.caixa-modal'),
-  message: document.querySelector('.modal .title span'),
-  btnClose: document.querySelector('.modal button.close'),
-
-  open: function () {
-    modal.caixa.classList.add('open')
-  },
-
-  close: function (){
-    modal.caixa.classList.remove('open')
-  }
-}
-
-// Função para prevenir que a página atualize sozinha por casua do BUTTON
+// Função para prevenir que a página atualize sozinha por casua do BUTTON e outras utilidades
 form.onsubmit = (event) => {
   event.preventDefault(); // Prevenir a atualização mencionada acima.
 
@@ -37,12 +24,6 @@ form.onsubmit = (event) => {
   //Fazendo com que o modal APAREÇA (A class 'open' já deve ter sido criada no HTML e configurada no CSS)
   //caixaModal.classList.add('open') - Atribuir essa funcionalidade a propria MODAL criada mais acima:
   modal.open()
-}
-
-//Fazendo com que o modal SUMA (A class 'open' já deve ter sido criada no HTML e configurada no CSS)
-modal.btnClose.onclick = () => {
-  //caixaModal.classList.remove('open') - Atribuir essa funcionalidade a propria MODAL criada mais acima.
-  modal.close()
 }
 
 // Função para o calculo do IMC
