@@ -22,3 +22,11 @@ modal.btnClose.onclick = () => {
   //caixaModal.classList.remove('open') - Atribuir essa funcionalidade a propria MODAL criada mais acima.
   modal.close()
 }
+
+// Adicionando o fechamento da MODAL pelo teclado
+window.addEventListener('keydown', handleKeyDown)
+function handleKeyDown(event) {
+  if(event.key === 'Escape') {
+    modal.close()
+  }
+}

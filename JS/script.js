@@ -1,4 +1,5 @@
 import { modal } from './modal.js'
+import { alertError } from './error.js'
 
 // 'Pegando' os seletores HTML e atrubindo a variáveis em JS.
 
@@ -14,6 +15,16 @@ form.onsubmit = (event) => {
   const weight = inputWeight.value
   const height = inputHeight.value
 
+  // Mostrando o Error ou não após receberem os valores nos INPUTS
+  const showError = notNumber(weight) || notNumber(height)
+
+  if(showError) {
+    alertError.open()
+    return;
+  }
+
+  alertError.close()
+  
   // Atribuindo o resultado da função IMC a uma variável para printa-la
   const result = IMC(weight,height)
 
@@ -24,6 +35,11 @@ form.onsubmit = (event) => {
   //Fazendo com que o modal APAREÇA (A class 'open' já deve ter sido criada no HTML e configurada no CSS)
   //caixaModal.classList.add('open') - Atribuir essa funcionalidade a propria MODAL criada mais acima:
   modal.open()
+}
+
+// Validação dos INPUTS
+function notNumber(value) {
+  return isNaN(value) || value == ""
 }
 
 // Função para o calculo do IMC
